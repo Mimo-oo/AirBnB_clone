@@ -28,6 +28,13 @@ class unittest(unittest.TestCase):
         self.assertEqual(my_model_dict["created-at"], my_model.created_at.isoformat())
         self.assertEqual(my_model_dict["updated_at"], my_model.updated_at.isoformat())
 
+    def test_str(self):
+        my_model = BaseModel()
+
+        self.assertTrue(str(my_model).startswith('[BaseMode]'))
+
+        self.assertIn(my_model.id, str(my_model))
+
 
 
 
