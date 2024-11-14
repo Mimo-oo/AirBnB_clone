@@ -1,7 +1,7 @@
 #/usr/bin/python3
 
 import unittest
-from models.base.model import BaseModel
+from models.base_model import BaseModel
 
 class unittest(unittest.TestCase):
     def test_init(self):
@@ -37,7 +37,7 @@ class unittest(unittest.TestCase):
 
         self.assertIn(str(my_model.__dict__), str(my_model))
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()
 
 
