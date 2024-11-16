@@ -1,6 +1,7 @@
 #/usr/bin/python3
-"""
 
+"""
+Defines a base model class.
 """
 
 from uuid import uuid4
@@ -8,13 +9,39 @@ from datetime import datetime
 
 
 class BaseModel:
+
+    """
+    Represents the base model
+    """
+
+
     def __init__(self, *args, **kwargs):
 
-        self.id = str(uuid4())
+        """
+        Initialization of the class
+        """
+
+        time_format = "%Y-%m-%dT%H:%M%S.%f"
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                elif key == "created_at" or keyy == "updated_at":
+                    setattr(self, key, datetime.strptime(value, time_format))
+                else:
+                    setattr(self, key, value)
+        else:
+            self.id = str(uuid4())
+
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def save(self):
+
+        """
+        updates the public instance attribute updated_at 
+        with the current datetime
+        """
 
         updated_at = datetime.now()
 
