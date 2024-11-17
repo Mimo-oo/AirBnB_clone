@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 """
 Defines a base model class.
@@ -14,7 +14,6 @@ class BaseModel:
     Represents the base model
     """
 
-
     def __init__(self, *args, **kwargs):
 
         """
@@ -26,7 +25,7 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
-                elif key == "created_at" or keyy == "updated_at":
+                elif key == "created_at" or key == "updated_at":
                     setattr(self, key, datetime.strptime(value, time_format))
                 else:
                     setattr(self, key, value)
@@ -39,8 +38,8 @@ class BaseModel:
     def save(self):
 
         """
-        updates the public instance attribute updated_at 
-        with the current datetime
+        updates the public instance attribute updated_at
+with the current datetime
         """
 
         updated_at = datetime.now()
