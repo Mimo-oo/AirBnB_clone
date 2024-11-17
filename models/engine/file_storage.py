@@ -45,7 +45,7 @@ class FileStorgage:
         """
         To deserialze the object and read it
         """
-        if os.path.isFile(FileStorage.__file_path):
+        if os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r", enconding="utf-8") as file:
                 try:
                     obj_dict = json.load(file)

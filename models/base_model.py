@@ -6,6 +6,7 @@ Defines a base model class.
 
 from uuid import uuid4
 from datetime import datetime
+from AirBnB_clone import models
 
 
 class BaseModel:
@@ -31,9 +32,10 @@ class BaseModel:
                     setattr(self, key, value)
         else:
             self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        models.storage.new(self)
 
     def save(self):
 
@@ -42,7 +44,9 @@ class BaseModel:
 with the current datetime
         """
 
-        updated_at = datetime.now()
+        self.updated_at = datetime.now()
+        models.storage.save()
+
 
     def to_dict(self):
 
