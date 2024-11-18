@@ -34,6 +34,7 @@ class TestBasemodel(unittest.TestCase):
             os.rename("tmp.json", "file.json")
         except FileNotFoundError:
             pass
+
     def test_init(self):
         """
         Test for init
