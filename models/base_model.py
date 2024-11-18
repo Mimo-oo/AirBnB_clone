@@ -5,9 +5,6 @@ Module for the BaseModel class.
 import uuid
 from datetime import datetime
 import models
-import sys
-sys.path.insert(0, './models')
-
 
 class BaseModel:
 
